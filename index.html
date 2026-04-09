@@ -466,10 +466,10 @@
     overflow: hidden;
   }
 
-  .location-wrap img {
+  .location-wrap iframe {
     width: 100%;
     height: 380px;
-    object-fit: cover;
+    border: none;
     display: block;
   }
 
@@ -901,11 +901,12 @@
     </div>
     <div class="section-body" style="padding: 0;">
       <div class="location-wrap">
-        <img
-          src="https://maps.googleapis.com/maps/api/staticmap?center=1+Horse+Guards+Avenue,London,SW1A+2HU&zoom=15&size=1100x380&maptype=roadmap&markers=color:0x00b8a9%7Clabel:D%7C1+Horse+Guards+Avenue,London,SW1A+2HU&style=feature:all%7Celement:geometry%7Ccolor:0xf5f5f5&style=feature:road%7Celement:geometry%7Ccolor:0xffffff&style=feature:water%7Celement:geometry%7Ccolor:0xd5e8f3&style=feature:poi%7Celement:labels%7Cvisibility:off&key=AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY"
-          alt="Daintta London office map – 1 Horse Guards Avenue, London SW1A 2HU"
-          onerror="this.onerror=null; this.src='https://via.placeholder.com/1100x380/0d1f3c/00b8a9?text=1+Horse+Guards+Avenue%2C+London+SW1A+2HU';"
-        >
+        <iframe
+          src="https://www.openstreetmap.org/export/embed.html?bbox=-0.1290%2C51.5020%2C-0.1210%2C51.5060&layer=mapnik&marker=51.5040%2C-0.1250"
+          title="Daintta London Office – 1 Horse Guards Avenue, London SW1A 2HU"
+          loading="lazy"
+          allowfullscreen>
+        </iframe>
         <div class="location-info">
           <div class="li-icon">📍</div>
           <div>
