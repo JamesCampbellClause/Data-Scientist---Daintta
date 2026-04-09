@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Scientist – Daintta | Candidate Interview Pack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1f3c;
+    --navy-mid: #162d52;
+    --teal: #00b8a9;
+    --teal-light: #00d4c3;
+    --teal-pale: #e0faf8;
+    --gold: #f5c842;
+    --white: #ffffff;
+    --off-white: #f4f7f9;
+    --text: #1a2b3c;
+    --text-light: #4a6070;
+    --border: #dce8f0;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--off-white);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* HEADER */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #1a3a6e 100%);
+    color: var(--white);
+    padding: 64px 40px 72px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 0%, rgba(0,184,169,0.18) 0%, transparent 60%),
+                radial-gradient(ellipse at 10% 100%, rgba(0,184,169,0.10) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .logo-wrap {
+    margin-bottom: 32px;
+  }
+
+  .logo-wrap img {
+    height: 56px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(0,184,169,0.2);
+    border: 1px solid rgba(0,184,169,0.5);
+    color: var(--teal-light);
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+  }
+
+  .hero h1 span { color: var(--teal-light); }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.75);
+    max-width: 560px;
+    margin: 0 auto 36px;
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+
+  .meta-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px;
+    padding: 10px 18px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.9);
+  }
+
+  .meta-chip .icon { font-size: 1rem; }
+
+  .salary-chip {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: var(--navy);
+    font-weight: 700;
+  }
+
+  .hero-divider {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--teal), transparent);
+    margin: 0 auto;
+    border-radius: 2px;
+  }
+
+  /* LAYOUT */
+  .page-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+    width: 100%;
+  }
+
+  /* SECTION */
+  .section {
+    background: var(--white);
+    border-radius: 16px;
+    margin-top: 32px;
+    overflow: hidden;
+    box-shadow: 0 2px 16px rgba(13,31,60,0.06);
+    width: 100%;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 28px 36px;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(90deg, var(--navy) 0%, var(--navy-mid) 100%);
+    color: var(--white);
+    width: 100%;
+  }
+
+  .section-head .sh-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(0,184,169,0.2);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  .section-head h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: var(--white);
+  }
+
+  .section-head p {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.6);
+    margin-top: 2px;
+  }
+
+  .section-body {
+    padding: 36px;
+  }
+
+  /* ABOUT */
+  .about-text {
+    font-size: 1rem;
+    color: var(--text);
+    line-height: 1.8;
+    max-width: 100%;
+  }
+
+  .about-text + .about-text { margin-top: 16px; }
+
+  .values-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 28px;
+    width: 100%;
+  }
+
+  .value-card {
+    background: var(--teal-pale);
+    border-left: 4px solid var(--teal);
+    border-radius: 10px;
+    padding: 18px 20px;
+    text-align: center;
+  }
+
+  .value-card .vc-icon { font-size: 1.6rem; margin-bottom: 8px; }
+  .value-card h3 { font-family: 'Syne', sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: 0.08em; }
+
+  /* ROLE OVERVIEW */
+  .role-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    width: 100%;
+  }
+
+  .role-col h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 16px;
+  }
+
+  .bullet-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .bullet-list li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 0.92rem;
+    color: var(--text);
+    margin-bottom: 10px;
+    line-height: 1.6;
+  }
+
+  .bullet-list li::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    background: var(--teal);
+    border-radius: 50%;
+    margin-top: 7px;
+    flex-shrink: 0;
+  }
+
+  /* REQUIREMENTS */
+  .req-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    width: 100%;
+  }
+
+  .req-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    background: var(--off-white);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+
+  .req-check {
+    width: 22px;
+    height: 22px;
+    background: var(--teal);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+    color: var(--white);
+    font-size: 0.65rem;
+    font-weight: 700;
+  }
+
+  .req-item p { font-size: 0.88rem; line-height: 1.55; color: var(--text); }
+
+  /* WHAT TO EXPECT */
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+    width: 100%;
+  }
+
+  .process-steps::before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    left: calc(12.5%);
+    right: calc(12.5%);
+    height: 2px;
+    background: linear-gradient(90deg, var(--teal), var(--navy));
+    z-index: 0;
+  }
+
+  .step {
+    text-align: center;
+    padding: 0 16px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-num {
+    width: 60px;
+    height: 60px;
+    background: var(--navy);
+    border: 3px solid var(--teal);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--teal);
+    margin: 0 auto 16px;
+  }
+
+  .step h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+
+  .step p { font-size: 0.8rem; color: var(--text-light); line-height: 1.55; }
+
+  .process-note {
+    margin-top: 28px;
+    background: var(--teal-pale);
+    border-left: 4px solid var(--teal);
+    border-radius: 0 10px 10px 0;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* BENEFITS */
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    width: 100%;
+  }
+
+  .benefit-cat {
+    background: var(--off-white);
+    border-radius: 12px;
+    padding: 22px 20px;
+  }
+
+  .benefit-cat-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .benefit-cat-head .bch-icon {
+    font-size: 1.4rem;
+  }
+
+  .benefit-cat-head h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--navy);
+  }
+
+  .benefit-list {
+    list-style: none;
+  }
+
+  .benefit-list li {
+    font-size: 0.86rem;
+    color: var(--text);
+    padding: 5px 0;
+    border-bottom: 1px solid var(--border);
+    line-height: 1.5;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .benefit-list li:last-child { border-bottom: none; }
+
+  .benefit-list li::before {
+    content: '✓';
+    color: var(--teal);
+    font-weight: 700;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* SECURITY */
+  .security-box {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    border-radius: 12px;
+    padding: 28px 32px;
+    color: var(--white);
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .security-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+  }
+
+  .security-box h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--teal-light);
+  }
+
+  .security-box p { font-size: 0.9rem; color: rgba(255,255,255,0.8); line-height: 1.65; }
+
+  /* LOCATION */
+  .location-wrap {
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .location-wrap img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .location-info {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 20px;
+    background: var(--off-white);
+    border-radius: 0 0 10px 10px;
+    border-top: 2px solid var(--teal);
+  }
+
+  .location-info .li-icon { font-size: 1.4rem; }
+
+  .location-info p { font-size: 0.9rem; color: var(--text); line-height: 1.5; }
+  .location-info strong { color: var(--navy); }
+
+  /* CONTACT */
+  .contact-card {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+    border-radius: 16px;
+    padding: 36px 40px;
+    width: 100%;
+  }
+
+  .contact-avatar {
+    width: 72px;
+    height: 72px;
+    background: var(--teal);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--navy);
+    flex-shrink: 0;
+  }
+
+  .contact-info { flex: 1; }
+
+  .contact-info h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 2px;
+  }
+
+  .contact-info .c-title {
+    font-size: 0.85rem;
+    color: var(--teal-light);
+    margin-bottom: 14px;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .contact-link:hover {
+    background: rgba(0,184,169,0.2);
+    border-color: var(--teal);
+    color: var(--teal-light);
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    padding: 40px 24px;
+    color: var(--text-light);
+    font-size: 0.82rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .footer a { color: var(--teal); text-decoration: none; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-inner { animation: fadeUp 0.7s ease both; }
+  .section { animation: fadeUp 0.5s ease both; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .hero { padding: 48px 24px 56px; }
+    .section-body { padding: 24px; }
+    .section-head { padding: 20px 24px; }
+    .role-cols { grid-template-columns: 1fr; }
+    .req-grid { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr 1fr; gap: 24px; }
+    .process-steps::before { display: none; }
+    .benefits-grid { grid-template-columns: 1fr; }
+    .values-row { grid-template-columns: 1fr; }
+    .contact-card { flex-direction: column; text-align: center; padding: 28px 24px; }
+    .contact-links { justify-content: center; }
+    .meta-chip { font-size: 0.8rem; padding: 8px 14px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="logo-wrap">
+      <img src="https://gallery-cdn.breezy.hr/e989a52f-0a87-42ce-ba35-78383169188f/Final logo PNG.png" alt="Daintta logo">
+    </div>
+    <div class="hero-badge">Candidate Interview Pack</div>
+    <h1>Data Scientist<br><span>at Daintta</span></h1>
+    <p class="hero-sub">Everything you need to know about this opportunity, from the role itself to what the interview process looks like.</p>
+    <div class="hero-meta">
+      <div class="meta-chip salary-chip"><span class="icon">💷</span> Up to £83,000 base</div>
+      <div class="meta-chip"><span class="icon">📍</span> London / Cheltenham (Hybrid)</div>
+      <div class="meta-chip"><span class="icon">🕐</span> Full-time, Permanent</div>
+      <div class="meta-chip"><span class="icon">🛡️</span> SC Clearance Required</div>
+    </div>
+    <div class="hero-divider"></div>
+  </div>
+</header>
+
+<div class="page-wrap">
+
+  <!-- ABOUT DAINTTA -->
+  <div class="section">
+    <div class="section-head">
+      <div class="sh-icon">🏢</div>
+      <div>
+        <h2>About Daintta</h2>
+        <p>Who you'd be joining</p>
+      </div>
+    </div>
+    <div class="section-body">
+      <p class="about-text">Daintta is a specialist data and security consultancy with a clear purpose: to help clients and organisations secure and protect the UK. Operating at the intersection of data science, machine learning, and national security, they bring deep technical expertise to some of the hardest challenges in the public and private sectors.</p>
+      <p class="about-text">They are agile, independent, and genuinely collaborative, working in complex environments where innovative thinking isn't just encouraged but essential. Daintta is a growing business where your voice matters and where you can shape what the company becomes.</p>
+      <div class="values-row">
+        <div class="value-card">
+          <div class="vc-icon">🤝</div>
+          <h3>Fair</h3>
+        </div>
+        <div class="value-card">
+          <div class="vc-icon">🔍</div>
+          <h3>Transparent</h3>
+        </div>
+        <div class="value-card">
+          <div class="vc-icon">🚀</div>
+          <h3>Daring</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- THE ROLE -->
+  <div class="section">
+    <div class="section-head">
+      <div class="sh-icon">🎯</div>
+      <div>
+        <h2>The Role</h2>
+        <p>What you'll be doing day to day</p>
+      </div>
+    </div>
+    <div class="section-body">
+      <p style="margin-bottom:28px; color:var(--text); font-size:0.95rem; line-height:1.75;">You'll work on complex, real-world data problems with tangible societal impact. This is a senior individual contributor role where you'll lead client engagements, architect solutions, and mentor those around you. No two days look the same.</p>
+      <div class="role-cols">
+        <div class="role-col">
+          <h3>Key Responsibilities</h3>
+          <ul class="bullet-list">
+            <li>Lead client projects and provide subject matter expertise across data science and ML</li>
+            <li>Work in scrum-like environments for iterative, fail-fast innovation</li>
+            <li>Identify opportunities for data science to solve real client problems</li>
+            <li>Apply statistical and evidence-based techniques to drive insight</li>
+            <li>Design, evaluate, and implement on-premise, cloud and hybrid ML solutions</li>
+            <li>Build maintainable, production-grade code using modern data science libraries</li>
+            <li>Communicate complex findings clearly to both technical and non-technical audiences</li>
+            <li>Apply ethical principles throughout your approach to data</li>
+          </ul>
+        </div>
+        <div class="role-col">
+          <h3>The Ideal Candidate</h3>
+          <ul class="bullet-list">
+            <li>You enjoy complex data problems but love finding simple, elegant solutions</li>
+            <li>You're comfortable with ambiguity and driven by making things clearer</li>
+            <li>Clients love working with you — you're clear, trustworthy, and reliable</li>
+            <li>You can present to the boardroom as confidently as you can write production code</li>
+            <li>You're a genuine collaborator who steps up when it matters</li>
+            <li>You keep pace with a fast-evolving technology landscape</li>
+            <li>You think about the future and thrive on solving hard problems</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REQUIREMENTS -->
+  <div class="section">
+    <div class="section-head">
+      <div class="sh-icon">✅</div>
+      <div>
+        <h2>What They're Looking For</h2>
+        <p>Essential skills and experience</p>
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="req-grid">
+        <div class="req-item">
+          <div class="req-check">✓</div>
+          <p>5+ years of degree-level industry experience in data science</p>
+        </div>
+        <div class="req-item">
+          <div class="req-check">✓</div>
+          <p>Degree in a STEM subject (or equivalent experience)</p>
+        </div>
+        <div class="req-item">
+          <div class="req-check">✓</div>
+          <p>Background in consultancy, engineering, or data industry</p>
+        </div>
+        <div class="req-item">
+          <div class="req-check">✓</div>
+          <p>Led client delivery across data science, data engineering and data security projects</p>
+        </div>
+        <div class="req-item">
+          <div class="req-check">✓</div>
+          <p>Strong Python skills applied to data science workflows</p>
+        </div>
+        <div class="req-item">
+          <div class="req-check">✓</div>
+          <p>Cloud-based infrastructure experience (AWS, Azure or GCP)</p>
+        </div>
+        <div class="req-item">
+          <div class="req-check">✓</div>
+          <p>CI/CD tooling experience for build, test and deployment pipelines</p>
+        </div>
+        <div class="req-item">
+          <div class="req-check">✓</div>
+          <p>Database experience: SQL, NoSQL (Elasticsearch, Graph databases)</p>
+        </div>
+        <div class="req-item">
+          <div class="req-check">✓</div>
+          <p>Strong understanding of coding best practices, design patterns and code versioning</p>
+        </div>
+        <div class="req-item">
+          <div class="req-check">✓</div>
+          <p>Demonstrable continuous personal development and strong interpersonal skills</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT TO EXPECT -->
+  <div class="section">
+    <div class="section-head">
+      <div class="sh-icon">🗺️</div>
+      <div>
+        <h2>What to Expect</h2>
+        <p>A transparent look at the interview process</p>
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Initial Conversation</h3>
+          <p>A relaxed call with your recruiter to explore fit, answer your questions, and give you an honest picture of the role.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Introductory Interview</h3>
+          <p>A conversation with the Daintta team covering your background, experience, and how you approach data science problems.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Technical Assessment</h3>
+          <p>You'll be given the opportunity to demonstrate your technical thinking — expect real-world, relevant scenarios rather than abstract puzzles.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <h3>Final Stage</h3>
+          <p>A chance to meet more of the team, ask deeper questions, and make sure this is absolutely the right move for you.</p>
+        </div>
+      </div>
+      <div class="process-note">
+        <strong>A note on transparency:</strong> We believe the interview process should work both ways. At every stage, we encourage you to ask questions. By the time you reach an offer, you should feel completely confident in your decision. Nothing will surprise you.
+      </div>
+    </div>
+  </div>
+
+  <!-- BENEFITS -->
+  <div class="section">
+    <div class="section-head">
+      <div class="sh-icon">🎁</div>
+      <div>
+        <h2>Benefits</h2>
+        <p>What Daintta offers beyond the salary</p>
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="benefits-grid">
+        <div class="benefit-cat">
+          <div class="benefit-cat-head">
+            <span class="bch-icon">🏖️</span>
+            <h3>Time Off</h3>
+          </div>
+          <ul class="benefit-list">
+            <li>25 days annual leave plus bank holidays</li>
+            <li>Up to 5 days paid annual training leave</li>
+            <li>Up to 3 days annual volunteering leave</li>
+            <li>Competitive maternity, paternity &amp; shared parental leave</li>
+            <li>Compassionate leave</li>
+          </ul>
+        </div>
+        <div class="benefit-cat">
+          <div class="benefit-cat-head">
+            <span class="bch-icon">💊</span>
+            <h3>Health &amp; Wellness</h3>
+          </div>
+          <ul class="benefit-list">
+            <li>Comprehensive private health insurance</li>
+            <li>Employee Assistance Programme (24/7 support)</li>
+            <li>£2,000 Flex Cash Allowance, paid pro-rata</li>
+          </ul>
+        </div>
+        <div class="benefit-cat">
+          <div class="benefit-cat-head">
+            <span class="bch-icon">💰</span>
+            <h3>Financial</h3>
+          </div>
+          <ul class="benefit-list">
+            <li>5% pension contribution</li>
+            <li>Discretionary performance bonuses and company awards</li>
+            <li>Electric Vehicle (EV) salary sacrifice scheme</li>
+          </ul>
+        </div>
+        <div class="benefit-cat">
+          <div class="benefit-cat-head">
+            <span class="bch-icon">📚</span>
+            <h3>Professional Development</h3>
+          </div>
+          <ul class="benefit-list">
+            <li>Up to £1,000 annual training budget (expandable by business case)</li>
+            <li>5 dedicated training leave days per year</li>
+            <li>1 professional membership paid annually</li>
+            <li>Up to £200 IT budget for new joiners</li>
+          </ul>
+        </div>
+        <div class="benefit-cat">
+          <div class="benefit-cat-head">
+            <span class="bch-icon">🎉</span>
+            <h3>Perks &amp; Culture</h3>
+          </div>
+          <ul class="benefit-list">
+            <li>Free breakfast every Tuesday in the London office</li>
+            <li>Fortnightly drinks in London</li>
+            <li>Regular socials, quizzes and guest workshops</li>
+            <li>Huckletree perks: gym and restaurant discounts</li>
+            <li>Employee referral programme</li>
+            <li>Monthly breakfast club in Cheltenham</li>
+          </ul>
+        </div>
+        <div class="benefit-cat" style="background: linear-gradient(135deg, var(--teal-pale), #d0f5f1); border: 2px solid var(--teal);">
+          <div class="benefit-cat-head">
+            <span class="bch-icon">⭐</span>
+            <h3>At a Glance</h3>
+          </div>
+          <ul class="benefit-list">
+            <li>Up to £83,000 base salary</li>
+            <li>£2,000 flex cash + £200 IT budget</li>
+            <li>Private health + EAP + EV scheme</li>
+            <li>33 days leave minimum (incl. bank holidays)</li>
+            <li>Hybrid: 2–3 days in office</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECURITY CLEARANCE -->
+  <div class="section">
+    <div class="section-head">
+      <div class="sh-icon">🔐</div>
+      <div>
+        <h2>Security Clearance</h2>
+        <p>Important eligibility information</p>
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="security-box">
+        <div class="security-icon">🛡️</div>
+        <div>
+          <h3>SC Clearance Required</h3>
+          <p>Due to the nature of this role, you will need to be willing and eligible to achieve a minimum of SC (Security Check) clearance. To qualify, you must be a British Citizen and have resided in the UK for the last five years. If you're unsure about your eligibility, you can find detailed information at <strong>gov.uk/government/organisations/united-kingdom-security-vetting</strong>. We're happy to talk this through with you openly before you apply.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOCATION MAP -->
+  <div class="section">
+    <div class="section-head">
+      <div class="sh-icon">📍</div>
+      <div>
+        <h2>London Office</h2>
+        <p>Where you'll be based</p>
+      </div>
+    </div>
+    <div class="section-body" style="padding: 0;">
+      <div class="location-wrap">
+        <img
+          src="https://maps.googleapis.com/maps/api/staticmap?center=1+Horse+Guards+Avenue,London,SW1A+2HU&zoom=15&size=1100x380&maptype=roadmap&markers=color:0x00b8a9%7Clabel:D%7C1+Horse+Guards+Avenue,London,SW1A+2HU&style=feature:all%7Celement:geometry%7Ccolor:0xf5f5f5&style=feature:road%7Celement:geometry%7Ccolor:0xffffff&style=feature:water%7Celement:geometry%7Ccolor:0xd5e8f3&style=feature:poi%7Celement:labels%7Cvisibility:off&key=AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY"
+          alt="Daintta London office map – 1 Horse Guards Avenue, London SW1A 2HU"
+          onerror="this.onerror=null; this.src='https://via.placeholder.com/1100x380/0d1f3c/00b8a9?text=1+Horse+Guards+Avenue%2C+London+SW1A+2HU';"
+        >
+        <div class="location-info">
+          <div class="li-icon">📍</div>
+          <div>
+            <p><strong>Daintta London Office</strong><br>1 Horse Guards Avenue, London, SW1A 2HU</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="section">
+    <div class="section-head">
+      <div class="sh-icon">📞</div>
+      <div>
+        <h2>Your Recruiter</h2>
+        <p>Get in touch with any questions</p>
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="contact-card">
+        <div class="contact-avatar">JC</div>
+        <div class="contact-info">
+          <h3>James Campbell-Clause</h3>
+          <p class="c-title">Cyber Security Recruitment Specialist · Eden James Consulting</p>
+          <div class="contact-links">
+            <a href="mailto:james.campbell-clause@edenjames.co.uk" class="contact-link">
+              ✉️ james.campbell-clause@edenjames.co.uk
+            </a>
+            <a href="tel:07528763202" class="contact-link">
+              📞 07528 763202
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <p>This candidate pack has been prepared by Eden James Consulting on behalf of Daintta. All role information is accurate at time of publication. © 2025 Eden James Consulting.</p>
+</footer>
+
+</body>
+</html>
